@@ -4,6 +4,8 @@ import Circuit from "./pages/Circuit/Circuit";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Register from "./pages/Register/Register";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin/AdminLogin";
 
 function App() {
   const { pathname } = useLocation();
@@ -21,6 +23,8 @@ function App() {
         </Route>
         <Route path="/*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashbord" element={<AdminDashboard />} />
+        <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/not-found" element={<NotFound />} />
       </Routes>
     </div>
