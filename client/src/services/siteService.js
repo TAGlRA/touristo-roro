@@ -1,8 +1,9 @@
 import api from "./api";
+import { sites } from "./data";
 
 const siteService = {
-  getSites: () => api.get("/sites"),
-  getSiteById: (siteId) => api.get(`/sites/${siteId}`),
+  getSites: () => sites,
+  getSiteById: (siteId) => sites.find((s) => s.id === siteId),
 };
 
 export default siteService;

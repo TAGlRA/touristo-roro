@@ -23,10 +23,47 @@ const SiteFilters = () => {
 
     setLoading(true);
 
-    const circuit = await createCircuit(
-      `latitude=48.8741748&longitude=2.2985334&departement=${department}&numberOfDays=${numberOfDays}&numberOfSitesPerDay=${numberOfSitesPerDay}&historicalContext=${historicalContext}`
-    );
-    setCircuitId(circuit.data.id);
+    const circuit = {
+      id: "1",
+      numberOfDays: 1,
+      journeys: [
+        {
+          id: 1,
+          sites: [
+            {
+              id: 1,
+              city: null,
+              likes: 100,
+              dislikes: 3,
+              code_departement: null,
+              description: null,
+              historical_context: null,
+              importance: null,
+              latitude: 48.877059,
+              longitude: 2.329685,
+              name: "Home",
+              type: null,
+            },
+            {
+              id: 2,
+              city: "Lyon",
+              code_departement: 69,
+              likes: 90,
+              dislikes: 5,
+              description: "",
+              historical_context: "Modern globalization",
+              importance: 4.7,
+              latitude: 45.758254,
+              longitude: 4.834292,
+              name: "Immeuble",
+              type: "monument",
+            },
+          ],
+        },
+      ],
+    };
+
+    setCircuitId(circuit.id);
   };
 
   useEffect(() => {

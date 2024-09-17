@@ -12,24 +12,24 @@ const Circuit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!dayId || isNaN(dayId) || dayId < 1) {
-      navigate("1");
-      return;
-    }
-    if (circuit && dayId > circuit.numberOfDays) {
-      navigate("1");
-      return;
-    }
+    // if (!dayId || isNaN(dayId) || dayId < 1) {
+    //   navigate("1");
+    //   return;
+    // }
+    // if (circuit && dayId > circuit.numberOfDays) {
+    //   navigate("1");
+    //   return;
+    // }
     if (circuit) {
       const journeys = circuit.journeys.map((j) => j.sites);
-      const sites = journeys[dayId - 1].slice(1, -1);
+      const sites = journeys[0];
       setSitesOfTheDay(sites);
     }
   }, [dayId, circuit?.id]);
 
   useEffect(() => {
     const fetchCircuit = async () => {
-      const { data: c } = await getCircuitById(circuitId);
+      const c = await getCircuitById(circuitId);
       setCircuit(c);
     };
 
@@ -47,7 +47,7 @@ const Circuit = () => {
             />
           </div>
           <div className={styles.sites}>
-            <h1>Your Tourist Circuit : Day {dayId}</h1>
+            <h1>Your Recomendations</h1>
             {sitesOfTheDay.map((site, i) => (
               <Site number={i + 1} key={i} site={site} />
             ))}
